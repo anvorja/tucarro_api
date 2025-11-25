@@ -1,0 +1,1036 @@
+# Por defecto en local usando MySQL
+spring:
+  application:
+    name: auto-registry-api
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/tucarro_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: ${MYSQL_DB_USERNAME:root}
+    password: ${MYSQL_DB_PASSWORD:superamysql}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    # HikariCP para desarrollo
+    hikari:
+      pool-name: TuCarroHikariPool-MySQL-Dev
+      maximum-pool-size: 5
+      minimum-idle: 2
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      connection-timeout: 20000
+      validation-timeout: 5000
+
+      connection-test-query: "SELECT 1"
+      auto-commit: true
+
+      data-source-properties:
+        ApplicationName: TuCarro-MySQL-Dev
+        useUnicode: true
+        characterEncoding: UTF-8
+        serverTimezone: UTC
+        useSSL: false
+        allowPublicKeyRetrieval: true
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data-mysql.sql
+
+  jackson:
+    time-zone: UTC
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+jwt:
+  secret: ${JWT_SECRET:myVerySecureJWTSecretKey1234ThatIsLongEnoughForTheHS512Algorithm987654321}
+  expiration: 86400000
+
+cors:
+  allowed-origins:
+    - "http://localhost:3000"
+    - "http://localhost:5173"
+    - "https://localhost:3000"
+    - "https://localhost:5173"
+    - "http://frontend:3000"
+    - "http://frontend:5173"
+    - "http://127.0.0.1:3000"
+    - "http://127.0.0.1:5173"
+  allowed-methods:
+    - "GET"
+    - "POST"
+    - "PUT"
+    - "DELETE"
+    - "OPTIONS"
+    - "PATCH"
+  allowed-headers:
+    - "Authorization"
+    - "Content-Type"
+    - "X-Requested-With"
+    - "Accept"
+    - "Origin"
+    - "Access-Control-Request-Method"
+    - "Access-Control-Request-Headers"
+
+springdoc:
+  api-docs:
+    path: /api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    operationsSorter: method
+    tagsSorter: alpha
+    tryItOutEnabled: true
+    filter: true
+    displayRequestDuration: true
+    defaultModelsExpandDepth: 2
+    defaultModelExpandDepth: 2
+  show-actuator: false
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  group-configs:
+    - group: 'tucarro-api'
+      paths-to-match: '/v1/**'
+      packages-to-scan: com.anborja.tucarro.infrastructure.driving.http.controller
+
+logging:
+  level:
+    com.anborja: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+## Por defecto en local usando Postgres
+#spring:
+#  application:
+#    name: auto-registry-api
+#
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/tucarro_db
+#    username: ${POSTGRES_DB_USERNAME:postgres}
+#    password: ${POSTGRES_DB_PASSWORD:superapostgres}
+#    driver-class-name: org.postgresql.Driver
+#
+#    # HikariCP para desarrollo
+#    hikari:
+#      pool-name: TuCarroHikariPool-Dev
+#      maximum-pool-size: 5
+#      minimum-idle: 2
+#      idle-timeout: 300000
+#      max-lifetime: 1200000
+#      connection-timeout: 20000
+#      validation-timeout: 5000
+#
+#      connection-test-query: "SELECT 1"
+#      auto-commit: true
+#
+#      data-source-properties:
+#        prepareThreshold: 0
+#        preferQueryMode: simple
+#        ApplicationName: TuCarro-Dev
+#        ssl: false
+#        loginTimeout: 10
+#        socketTimeout: 30
+#        charset: utf8
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#      naming:
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#    show-sql: true
+#    defer-datasource-initialization: true
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#        format_sql: true
+#        jdbc:
+#          time_zone: UTC
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#
+#  sql:
+#    init:
+#      mode: always
+#      data-locations: classpath:data-postgres.sql
+#
+#  jackson:
+#    time-zone: UTC
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    serialization:
+#      write-dates-as-timestamps: false
+#
+#server:
+#  port: 8080
+#  servlet:
+#    context-path: /api
+#
+#jwt:
+#  secret: ${JWT_SECRET:myVerySecureJWTSecretKey1234ThatIsLongEnoughForTheHS512Algorithm987654321}
+#  expiration: 86400000
+#
+#cors:
+#  allowed-origins:
+#    - "http://localhost:3000"
+#    - "http://localhost:5173"
+#    - "https://localhost:3000"
+#    - "https://localhost:5173"
+#    - "http://frontend:3000"
+#    - "http://frontend:5173"
+#    - "http://127.0.0.1:3000"
+#    - "http://127.0.0.1:5173"
+#  allowed-methods:
+#    - "GET"
+#    - "POST"
+#    - "PUT"
+#    - "DELETE"
+#    - "OPTIONS"
+#    - "PATCH"
+#  allowed-headers:
+#    - "Authorization"
+#    - "Content-Type"
+#    - "X-Requested-With"
+#    - "Accept"
+#    - "Origin"
+#    - "Access-Control-Request-Method"
+#    - "Access-Control-Request-Headers"
+#
+#springdoc:
+#  api-docs:
+#    path: /api-docs
+#    enabled: true
+#  swagger-ui:
+#    path: /swagger-ui.html
+#    enabled: true
+#    operationsSorter: method
+#    tagsSorter: alpha
+#    tryItOutEnabled: true
+#    filter: true
+#    displayRequestDuration: true
+#    defaultModelsExpandDepth: 2
+#    defaultModelExpandDepth: 2
+#  show-actuator: false
+#  default-consumes-media-type: application/json
+#  default-produces-media-type: application/json
+#  group-configs:
+#    - group: 'tucarro-api'
+#      paths-to-match: '/v1/**'
+#      packages-to-scan: com.anborja.tucarro.infrastructure.driving.http.controller
+#
+#logging:
+#  level:
+#    com.anborja: DEBUG
+#    org.springframework.security: DEBUG
+#    org.hibernate.SQL: DEBUG
+#    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+#  pattern:
+#    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+#    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+---
+# Perfil por defecto en local usando SQLServer
+
+#spring:
+#  application:
+#    name: auto-registry-api
+#
+#  datasource:
+#    url: jdbc:sqlserver://localhost:1433;databaseName=tucarro_db;trustServerCertificate=true
+#    username: ${DB_USERNAME:sa}
+#    password: ${DB_PASSWORD:Superasql2025!}
+#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#      naming:
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#    show-sql: true
+#    defer-datasource-initialization: true
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.SQLServerDialect
+#        format_sql: true
+#        jdbc:
+#          time_zone: UTC
+#    database-platform: org.hibernate.dialect.SQLServerDialect
+#
+#  sql:
+#    init:
+#      mode: always
+#      data-locations: classpath:data.sql
+#
+#  # Configuración de Jackson para JSON
+#  jackson:
+#    time-zone: UTC
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    serialization:
+#      write-dates-as-timestamps: false
+#
+#server:
+#  port: 8080
+#  servlet:
+#    context-path: /api
+#
+#jwt:
+#  secret: ${JWT_SECRET:myVerySecureJWTSecretKey1234ThatIsLongEnoughForTheHS512Algorithm987654321}
+#  expiration: 86400000
+#
+#cors:
+#  allowed-origins:
+#    - "http://localhost:3000"           # Frontend local
+#    - "http://localhost:5173"
+#    - "https://localhost:3000"          # Frontend HTTPS local
+#    - "https://localhost:5173"          # Frontend HTTPS local
+#    - "http://frontend:3000"            # Frontend en Docker (nombre del servicio)
+#    - "http://frontend:5173"            # Frontend en Docker (nombre del servicio)
+#    - "http://127.0.0.1:3000"          # IP local
+#    - "http://127.0.0.1:5173"          # IP local
+#  allowed-methods:
+#    - "GET"
+#    - "POST"
+#    - "PUT"
+#    - "DELETE"
+#    - "OPTIONS"
+#    - "PATCH"
+#  allowed-headers:
+#    - "Authorization"
+#    - "Content-Type"
+#    - "X-Requested-With"
+#    - "Accept"
+#    - "Origin"
+#    - "Access-Control-Request-Method"
+#    - "Access-Control-Request-Headers"
+#
+#springdoc:
+#  api-docs:
+#    path: /api-docs
+#    enabled: true
+#  swagger-ui:
+#    path: /swagger-ui.html
+#    enabled: true
+#    operationsSorter: method
+#    tagsSorter: alpha
+#    tryItOutEnabled: true
+#    filter: true
+#    displayRequestDuration: true
+#    defaultModelsExpandDepth: 2
+#    defaultModelExpandDepth: 2
+#  show-actuator: false
+#  default-consumes-media-type: application/json
+#  default-produces-media-type: application/json
+#  group-configs:
+#    - group: 'tucarro-api'
+#      paths-to-match: '/v1/**'
+#      packages-to-scan: com.anborja.tucarro.infrastructure.driving.http.controller
+#
+#logging:
+#  level:
+#    com.anborja: DEBUG
+#    org.springframework.security: DEBUG
+#    org.hibernate.SQL: DEBUG
+#    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+#  pattern:
+#    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+#    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+---
+# Perfil Docker
+spring:
+  config:
+    activate:
+      on-profile: docker
+  datasource:
+    url: jdbc:sqlserver://sqlserver:1433;databaseName=tucarro_db;trustServerCertificate=true
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:TuCarro2024!}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data.sql
+
+cors:
+  allowed-origins:
+    - "http://localhost:3000"                # Frontend local
+    - "http://frontend:3000"                 # Frontend en Docker
+    - "http://127.0.0.1:3000"
+    - "http://host.docker.internal:3000"    # Para acceso desde Docker a host
+    - "http://localhost:5173"
+    - "http://frontend:5173"                 # Frontend en Docker
+    - "http://127.0.0.1:5173"
+    - "http://host.docker.internal:5173"    # Para acceso desde Docker a host
+
+logging:
+  level:
+    root: INFO
+    com.anborja: INFO
+
+---
+# Perfil Dev
+spring:
+  config:
+    activate:
+      on-profile: dev
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data.sql
+
+cors:
+  allowed-origins:
+    - "http://localhost:3000"
+    - "http://localhost:3001"
+    - "http://localhost:8080"
+    - "http://localhost:5173"
+
+springdoc:
+  swagger-ui:
+    enabled: true
+  api-docs:
+    enabled: true
+
+logging:
+  level:
+    root: INFO
+    com.anborja: DEBUG
+
+---
+# Perfil: Despliegue en Render con Azure Database
+# version anterior que cargaba data.sql en el contenedor
+spring:
+  config:
+    activate:
+      on-profile: docker-render
+
+  datasource:
+    url: ${DB_URL}
+    username: ${AZURE_DB_USERNAME}
+    password: ${AZURE_DB_PASSWORD}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # Crear tablas en el primer despliegue
+    show-sql: false      # No mostrar SQL en logs de producción
+    defer-datasource-initialization: true  # Permitir defer para data.sql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+        format_sql: false
+        jdbc:
+          time_zone: UTC
+    database-platform: org.hibernate.dialect.SQLServerDialect
+
+  # Ejecutar data.sql SOLO en el primer despliegue
+  sql:
+    init:
+      mode: ${SQL_INIT_MODE:always}  # variable de entorno para controlar SQL_INIT_MODE=never
+      data-locations: classpath:data.sql
+
+  # Configuración de Jackson para JSON
+  jackson:
+    time-zone: UTC
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: ${PORT}
+  servlet:
+    context-path: /api
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 86400000 # 24 horas
+
+cors:
+  allowed-origins:
+    - "https://tucarro.onrender.com"
+    - "https://tucarro.netlify.app/"
+    - "https://tucarro-api.onrender.com"
+    - "http://localhost:3000"
+    - "http://localhost:5173"
+  allowed-methods:
+    - "GET"
+    - "POST"
+    - "PUT"
+    - "DELETE"
+    - "OPTIONS"
+    - "PATCH"
+  allowed-headers:
+    - "Authorization"
+    - "Content-Type"
+    - "X-Requested-With"
+    - "Accept"
+    - "Origin"
+    - "Access-Control-Request-Method"
+    - "Access-Control-Request-Headers"
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+logging:
+  level:
+    root: INFO
+    com.anborja: INFO
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+---
+# Perfil para poblar BD SQLServer en Azure (desde local):
+spring:
+  config:
+    activate:
+      on-profile: init-database
+
+  datasource:
+    url: ${DB_URL}
+    username: ${AZURE_DB_USERNAME}
+    password: ${AZURE_DB_PASSWORD}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data.sql
+
+  jackson:
+    time-zone: UTC
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.anborja: INFO
+    org.hibernate.SQL: INFO
+    org.springframework.boot.autoconfigure: INFO
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+---
+# Perfil para Deploy en Render con Azure (imagen Docker) producción
+spring:
+  config:
+    activate:
+      on-profile: docker-render-deploy
+
+  datasource:
+    url: ${DB_URL}
+    username: ${AZURE_DB_USERNAME}
+    password: ${AZURE_DB_PASSWORD}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    defer-datasource-initialization: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+        jdbc:
+          time_zone: UTC
+
+  sql:
+    init:
+      mode: never
+
+  jackson:
+    time-zone: UTC
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: ${PORT}
+  servlet:
+    context-path: /api
+
+jwt:
+  secret: ${JWT_SECRET}  # ✅ Variable de entorno obligatoria
+  expiration: 86400000
+
+cors:
+  allowed-origins:
+    - "https://tucarro.onrender.com"
+    - "https://tucarro.netlify.app/"
+    - "https://tucarro-api.onrender.com"
+    - "http://localhost:3000"
+    - "http://localhost:5173"
+  allowed-methods:
+    - "GET"
+    - "POST"
+    - "PUT"
+    - "DELETE"
+    - "OPTIONS"
+    - "PATCH"
+  allowed-headers:
+    - "Authorization"
+    - "Content-Type"
+    - "X-Requested-With"
+    - "Accept"
+    - "Origin"
+    - "Access-Control-Request-Method"
+    - "Access-Control-Request-Headers"
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+logging:
+  level:
+    root: WARN
+    com.anborja: INFO
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+---
+# Perfil para poblar BD PostgreSQL de la nube (desde local)
+spring:
+  config:
+    activate:
+      on-profile: init-database-postgres
+
+  datasource:
+    url: ${POSTGRES_DB_URL}
+    username: ${POSTGRES_DB_USERNAME}
+    password: ${POSTGRES_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+    hikari:
+      pool-name: TuCarroHikariPool-Init
+      maximum-pool-size: 5
+      minimum-idle: 2
+      idle-timeout: 300000          # 5 minutos
+      max-lifetime: 1200000         # 20 minutos
+      connection-timeout: 20000     # 20 segundos
+      validation-timeout: 5000      # 5 segundos
+      leak-detection-threshold: 60000  # 1 minuto
+
+      # 🔥 CONFIGURACIONES CRÍTICAS PARA POSTGRESQL
+      connection-test-query: "SELECT 1"
+      auto-commit: true
+
+      data-source-properties:
+        prepareThreshold: 0
+        preferQueryMode: simple
+        ApplicationName: TuCarro-Postgres-Init
+        ssl: true
+        sslmode: require
+        loginTimeout: 10
+        socketTimeout: 30
+        charset: utf8
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+          batch_size: 20
+          batch_versioned_data: true
+          connection:
+            handling_mode: DELAYED_ACQUISITION_AND_RELEASE_AFTER_TRANSACTION
+
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data-postgres.sql
+
+  jackson:
+    time-zone: UTC
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.anborja: INFO
+    org.hibernate.SQL: INFO
+    org.springframework.boot.autoconfigure: INFO
+    com.zaxxer.hikari: DEBUG
+    org.postgresql: WARN
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+---
+# Perfil para Deploy en Render con PostgreSQL (imagen Docker) producción
+spring:
+  config:
+    activate:
+      on-profile: docker-render-deploy-postgres
+
+  datasource:
+    url: ${POSTGRES_DB_URL}
+    username: ${POSTGRES_DB_USERNAME}
+    password: ${POSTGRES_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+    # ✅ Configuración HikariCP optimizada para producción
+    hikari:
+      pool-name: TuCarroHikariPool-Prod
+      maximum-pool-size: 10         # Más conexiones para producción
+      minimum-idle: 3
+      idle-timeout: 600000          # 10 minutos
+      max-lifetime: 1800000         # 30 minutos
+      connection-timeout: 30000     # 30 segundos
+      validation-timeout: 5000
+      leak-detection-threshold: 60000
+
+      connection-test-query: "SELECT 1"
+      auto-commit: true
+
+      data-source-properties:
+        prepareThreshold: 0
+        preferQueryMode: simple
+        ApplicationName: TuCarro-Prod
+        ssl: true
+        sslmode: require
+        loginTimeout: 15
+        socketTimeout: 60
+        charset: utf8
+        preparedStatementCacheQueries: 0
+        preparedStatementCacheSizeMiB: 0
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    defer-datasource-initialization: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: UTC
+          batch_size: 25
+          batch_versioned_data: true
+        connection:
+          handling_mode: DELAYED_ACQUISITION_AND_RELEASE_AFTER_TRANSACTION
+        cache:
+          use_second_level_cache: false
+          use_query_cache: false
+
+  sql:
+    init:
+      mode: never
+
+  jackson:
+    time-zone: UTC
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: ${PORT}
+  servlet:
+    context-path: /api
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 86400000
+
+cors:
+  allowed-origins:
+    - "https://tucarro.onrender.com"
+    - "https://tucarro.netlify.app/"
+    - "https://tucarro-api.onrender.com"
+    - "http://localhost:3000"
+    - "http://localhost:5173"
+  allowed-methods:
+    - "GET"
+    - "POST"
+    - "PUT"
+    - "DELETE"
+    - "OPTIONS"
+    - "PATCH"
+  allowed-headers:
+    - "Authorization"
+    - "Content-Type"
+    - "X-Requested-With"
+    - "Accept"
+    - "Origin"
+    - "Access-Control-Request-Method"
+    - "Access-Control-Request-Headers"
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+logging:
+  level:
+    root: WARN
+    com.anborja: INFO
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+---
+# Perfil para poblar BD MySQL de la nube (desde local)
+spring:
+  config:
+    activate:
+      on-profile: init-database-mysql
+
+  datasource:
+    url: ${MYSQL_DB_URL}
+    username: ${MYSQL_DB_USERNAME}
+    password: ${MYSQL_DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    hikari:
+      pool-name: TuCarroHikariPool-MySQL-Init
+      maximum-pool-size: 5
+      minimum-idle: 2
+      idle-timeout: 300000          # 5 minutos
+      max-lifetime: 1200000         # 20 minutos
+      connection-timeout: 20000     # 20 segundos
+      validation-timeout: 5000      # 5 segundos
+      leak-detection-threshold: 60000  # 1 minuto
+
+      connection-test-query: "SELECT 1"
+      auto-commit: true
+
+      data-source-properties:
+        ApplicationName: TuCarro-MySQL-Init
+        useUnicode: true
+        characterEncoding: UTF-8
+        serverTimezone: UTC
+        useSSL: true
+        allowPublicKeyRetrieval: true
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+        rewriteBatchedStatements: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+          batch_size: 20
+          batch_versioned_data: true
+
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data-mysql.sql
+
+  jackson:
+    time-zone: UTC
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.anborja: INFO
+    org.hibernate.SQL: INFO
+    org.springframework.boot.autoconfigure: INFO
+    com.zaxxer.hikari: DEBUG
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+---
+# Perfil para Deploy en Render con MySQL (imagen Docker) producción
+spring:
+  config:
+    activate:
+      on-profile: docker-render-deploy-mysql
+
+  datasource:
+    url: ${MYSQL_DB_URL}
+    username: ${MYSQL_DB_USERNAME}
+    password: ${MYSQL_DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    # Configuración HikariCP optimizada para producción MySQL
+    hikari:
+      pool-name: TuCarroHikariPool-MySQL-Prod
+      maximum-pool-size: 10         # Más conexiones para producción
+      minimum-idle: 3
+      idle-timeout: 600000          # 10 minutos
+      max-lifetime: 1800000         # 30 minutos
+      connection-timeout: 30000     # 30 segundos
+      validation-timeout: 5000
+      leak-detection-threshold: 60000
+
+      connection-test-query: "SELECT 1"
+      auto-commit: true
+
+      data-source-properties:
+        ApplicationName: TuCarro-MySQL-Prod
+        useUnicode: true
+        characterEncoding: UTF-8
+        serverTimezone: UTC
+        useSSL: true
+        requireSSL: true
+        verifyServerCertificate: false
+        allowPublicKeyRetrieval: true
+        cachePrepStmts: true
+        prepStmtCacheSize: 500
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+        rewriteBatchedStatements: true
+        connectTimeout: 30000
+        socketTimeout: 60000
+        autoReconnect: true
+        failOverReadOnly: false
+        maxReconnects: 3
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    defer-datasource-initialization: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+          batch_size: 25
+          batch_versioned_data: true
+        cache:
+          use_second_level_cache: false
+          use_query_cache: false
+
+  sql:
+    init:
+      mode: never
+
+  jackson:
+    time-zone: UTC
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+
+server:
+  port: ${PORT}
+  servlet:
+    context-path: /api
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 86400000
+
+cors:
+  allowed-origins:
+    - "https://tucarro.onrender.com"
+    - "https://tucarro.netlify.app/"
+    - "https://tucarro-api.onrender.com"
+    - "http://localhost:3000"
+    - "http://localhost:5173"
+  allowed-methods:
+    - "GET"
+    - "POST"
+    - "PUT"
+    - "DELETE"
+    - "OPTIONS"
+    - "PATCH"
+  allowed-headers:
+    - "Authorization"
+    - "Content-Type"
+    - "X-Requested-With"
+    - "Accept"
+    - "Origin"
+    - "Access-Control-Request-Method"
+    - "Access-Control-Request-Headers"
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+logging:
+  level:
+    root: WARN
+    com.anborja: INFO
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+    com.zaxxer.hikari: WARN
+    com.mysql.cj: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

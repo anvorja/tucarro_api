@@ -1,0 +1,42 @@
+# Ignorar archivos de construcción
+target/
+build/
+
+# Ignorar configuración de IDEs
+*.iml
+.idea/
+*.classpath
+*.project
+*.settings/
+
+# Ignorar sistemas de build
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+out/
+.mvn/
+!mvn/wrapper/maven-wrapper.jar
+
+# Ignorar archivos del sistema
+.DS_Store
+Thumbs.db
+README.md
+hexagonal_structure.md
+postman_testing_guide.md
+
+# Ignorar archivos de control de versiones
+.git/
+.gitignore
+
+# Ignorar archivos temporales
+*.log
+*.tmp
+*.swp
+*.bak
+*.orig
+
+# Ignorar dependencias locales
+node_modules/
+
+# 🚫 EXCLUIR data.sql para deploy en render
+src/main/resources/data.sql
+src/main/resources/data-postgres.sql

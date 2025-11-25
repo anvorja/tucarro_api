@@ -1,0 +1,3343 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>tucarro.com</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.configure({
+            tabReplace: '    ',
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>body {
+    position: relative;
+}
+
+h1 {
+    margin-top: 5px;
+}
+
+h1, h2, h3, h4 {
+    color: #2b2b2b;
+}
+
+h2:after {
+    content: ' ';
+}
+
+h5 {
+    font-weight: bold;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    display: none;
+    position: absolute;
+    margin-left: 8px;
+}
+
+h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a {
+    color: #a5a5a5;
+    display: initial;
+}
+
+.nav.nav-tabs > li > a {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.tab-content {
+    padding-top: 8px;
+}
+
+.table {
+    margin-bottom: 8px;
+}
+
+pre {
+    border-radius: 0px;
+    border: none;
+}
+
+pre code {
+    margin: -9.5px;
+}
+
+.request {
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+.response-text-sample {
+    padding: 0px !important;
+}
+
+.response-text-sample pre {
+    margin-bottom: 0px;
+}
+
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 250px;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #2b2b2b;
+    padding-top: 20px;
+}
+
+#sidebar-wrapper ul {
+    width: 250px;
+}
+
+#sidebar-wrapper ul li {
+    margin-right: 10px;
+}
+
+#sidebar-wrapper ul li a:hover {
+    background: inherit;
+    text-decoration: none;
+}
+
+#sidebar-wrapper ul li a {
+    display: block;
+    color: #ECF0F1;
+    padding: 6px 15px;
+}
+
+#sidebar-wrapper ul li ul {
+    padding-left: 25px;
+}
+
+#sidebar-wrapper ul li ul li a {
+    padding: 1px 0px;
+}
+
+#sidebar-wrapper ul li a:hover,
+#sidebar-wrapper ul li a:focus {
+    color: #e0c46c;
+    border-right: solid 1px #e0c46c;
+}
+
+#sidebar-wrapper ul li.active > a {
+    color: #e0c46c;
+    border-right: solid 3px #e0c46c;
+}
+
+#sidebar-wrapper ul li:not(.active) ul {
+    display: none;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px 15px 15px 250px;
+}
+</style>
+</head>
+<body data-spy="scroll" data-target=".scrollspy">
+<div id="sidebar-wrapper">
+    <div class="scrollspy">
+    <ul id="main-menu" data-spy="affix" class="nav">
+        <li>
+            <a href="#doc-general-notes">General notes</a>
+        </li>
+        
+        <li>
+            <a href="#doc-api-detail">API detail</a>
+        </li>
+        
+        <li>
+            <a href="#request-endpoint-test">Endpoint Test</a>
+        </li>
+        
+        <li>
+            <a href="#request-registro-de-user">Registro de User</a>
+        </li>
+        
+        <li>
+            <a href="#request-login-de-user">Login de user</a>
+        </li>
+        
+        <li>
+            <a href="#request-crear-auto">Crear auto</a>
+        </li>
+        
+        <li>
+            <a href="#request-listar-autos-del-usuario">Listar Autos del Usuario</a>
+        </li>
+        
+        <li>
+            <a href="#request-eliminar-auto">Eliminar Auto</a>
+        </li>
+        
+        <li>
+            <a href="#request-obtener-perfil-del-usuario">Obtener perfil del usuario</a>
+        </li>
+        
+        <li>
+            <a href="#request-modificar-carro">Modificar Carro</a>
+        </li>
+        
+        <li>
+            <a href="#request-health-check-para-search">Health check para search</a>
+        </li>
+        
+        <li>
+            <a href="#request-statistics">Statistics</a>
+        </li>
+        
+        <li>
+            <a href="#request-b-squeda-r-pida">Búsqueda rápida</a>
+        </li>
+        
+        <li>
+            <a href="#request-b-squeda">Búsqueda</a>
+        </li>
+        
+        <li>
+            <a href="#request-filtro-por-a-o">Filtro por año</a>
+        </li>
+        
+        <li>
+            <a href="#request-filtro-por-modelo">Filtro por modelo</a>
+        </li>
+        
+        <li>
+            <a href="#request-filtro-por-modelo">Filtro por modelo</a>
+        </li>
+        
+        <li>
+            <a href="#request-filtrar-por-marca">Filtrar por marca</a>
+        </li>
+        
+        <li>
+            <a href="#request-filtro-por-placa">Filtro por placa</a>
+        </li>
+        
+        <li>
+            <a href="#request-filtros-especiales">Filtros especiales</a>
+        </li>
+        
+        <li>
+            <a href="#request-craerusuario-a-eliminar">CraerUsuario a Eliminar</a>
+        </li>
+        
+        <li>
+            <a href="#request-eliminar-user">eliminar user</a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+</div>
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>tucarro.com</h1>
+
+                <h2 id="doc-general-notes">
+                    General notes
+                    <a href="#doc-general-notes"><i class="glyphicon glyphicon-link"></i></a>
+                </h2>
+
+                
+
+                
+
+                <h2 id="doc-api-detail">
+                    API detail
+                    <a href="#doc-api-detail"><i class="glyphicon glyphicon-link"></i></a>
+                </h2>
+
+                
+                
+                <div class="request">
+
+                    <h3 id="request-endpoint-test">
+                        Endpoint Test
+                        <a href="#request-endpoint-test"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-endpoint-test-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-endpoint-test-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-endpoint-test-example-curl">
+                                <pre><code class="hljs curl">curl -X GET "http://localhost:8080/api/v1/test/health"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-endpoint-test-example-http">
+                                <pre><code class="hljs http">GET /api/v1/test/health HTTP/1.1
+Host: localhost:8080</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-endpoint-test-responses-b11a7532-ae25-43a6-be98-5f53e2fc88c6" data-toggle="tab">
+                                    
+                                    Response
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-endpoint-test-responses-b11a7532-ae25-43a6-be98-5f53e2fc88c6">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 07:49:37 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "message": "Test endpoint working",
+    "status": "UP",
+    "timestamp": 1753343377418
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-registro-de-user">
+                        Registro de User
+                        <a href="#request-registro-de-user"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-registro-de-user-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-registro-de-user-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-registro-de-user-example-curl">
+                                <pre><code class="hljs curl">curl -X POST -d '{
+    "firstName": "Test mejia",
+    "lastName": "User kok", 
+    "email": "test2@test.com",
+    "password": "password123"
+}' "http://localhost:8080/api/v1/auth/register"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-registro-de-user-example-http">
+                                <pre><code class="hljs http">POST /api/v1/auth/register HTTP/1.1
+Host: localhost:8080
+
+{
+    "firstName": "Test mejia",
+    "lastName": "User kok", 
+    "email": "test2@test.com",
+    "password": "password123"
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-registro-de-user-responses-37e47cb3-6695-47d7-9f23-185f6c4cab49" data-toggle="tab">
+                                    
+                                    registro user test2@test.com
+                                    
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#request-registro-de-user-responses-fcbee633-4d36-4d86-b512-0a55c713c3eb" data-toggle="tab">
+                                    
+                                    Borja Registro
+                                    
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#request-registro-de-user-responses-6930fc91-b2c2-4f10-b6ad-98bcacd89640" data-toggle="tab">
+                                    
+                                    Registro de NuevoUser
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-registro-de-user-responses-37e47cb3-6695-47d7-9f23-185f6c4cab49">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>201 Created</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 07:52:16 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "access_token": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjEwLCJlbWFpbCI6InRlc3QyQHRlc3QuY29tIiwic3ViIjoidGVzdDJAdGVzdC5jb20iLCJpYXQiOjE3NTMzNDM1MzYsImV4cCI6MTc1MzQyOTkzNn0.ANuDfsnl5fRQDcvCeLuIw1AwwlEde91H42b0w4YNr7cej7DvrjXXBCP3mMLEi-Gh97QYVXqyMeEofV8zL3Vb3g",
+        "token_type": "Bearer",
+        "expires_in": 86400,
+        "user_info": {
+            "email": "test2@test.com",
+            "user_id": 10,
+            "full_name": "Test mejia User kok"
+        },
+        "timestamp": "2025-07-24 02:52:16"
+    },
+    "success": true,
+    "message": "Usuario registrado exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="request-registro-de-user-responses-fcbee633-4d36-4d86-b512-0a55c713c3eb">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>201 Created</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 08:10:28 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "access_token": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsInN1YiI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsImlhdCI6MTc1MzM0NDYyOCwiZXhwIjoxNzUzNDMxMDI4fQ.OZ-7FjKWVqCzvbUgjL1PqvJafVzzrN4XAWQuzIbmWvys5gmOKJaeVu4sdswH3Mxd262hqCe9z6wRSX1qMUXatA",
+        "token_type": "Bearer",
+        "expires_in": 86400,
+        "user_info": {
+            "email": "andres.vorja@test.com",
+            "user_id": 11,
+            "full_name": "Andres Borja"
+        },
+        "timestamp": "2025-07-24 03:10:28"
+    },
+    "success": true,
+    "message": "Usuario registrado exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="request-registro-de-user-responses-6930fc91-b2c2-4f10-b6ad-98bcacd89640">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>201 Created</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Fri, 25 Jul 2025 05:49:55 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "access_token": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6Im5ld3Rlc3RlckB0ZXN0LmNvbSIsInN1YiI6Im5ld3Rlc3RlckB0ZXN0LmNvbSIsImlhdCI6MTc1MzQyMjU5NSwiZXhwIjoxNzUzNTA4OTk1fQ.9Bc4ywy5kwAyNE9ev-9SEPbKnERoUQhwQO_nbVuwgzs7zlPMnWmRtNPHN7VL0MLM9O4AtTTHBOs8K4oqnIiUbw",
+        "token_type": "Bearer",
+        "expires_in": 86400,
+        "user_info": {
+            "email": "newtester@test.com",
+            "user_id": 23,
+            "full_name": "Nuevo user Ukok"
+        },
+        "timestamp": "2025-07-25 00:49:55"
+    },
+    "success": true,
+    "message": "Usuario registrado exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-login-de-user">
+                        Login de user
+                        <a href="#request-login-de-user"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-login-de-user-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-login-de-user-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-login-de-user-example-curl">
+                                <pre><code class="hljs curl">curl -X POST -d '{
+    "email": "test2@test.com",
+    "password": "password123"
+}' "http://localhost:8080/api/v1/auth/login"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-login-de-user-example-http">
+                                <pre><code class="hljs http">POST /api/v1/auth/login HTTP/1.1
+Host: localhost:8080
+
+{
+    "email": "test2@test.com",
+    "password": "password123"
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-login-de-user-responses-829bb592-1a5c-4804-b4ef-997178f3f70f" data-toggle="tab">
+                                    
+                                    login de test2@test
+                                    
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#request-login-de-user-responses-7a7b639d-ff64-49be-af1b-1ba10880e790" data-toggle="tab">
+                                    
+                                    Borja Login
+                                    
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#request-login-de-user-responses-769e064b-4ae7-487a-b0c5-27c78f694951" data-toggle="tab">
+                                    
+                                    Login de  NuevoUser
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-login-de-user-responses-829bb592-1a5c-4804-b4ef-997178f3f70f">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 07:53:37 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "access_token": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjEwLCJlbWFpbCI6InRlc3QyQHRlc3QuY29tIiwic3ViIjoidGVzdDJAdGVzdC5jb20iLCJpYXQiOjE3NTMzNDM2MTcsImV4cCI6MTc1MzQzMDAxN30.7xCqT71IgnjOStcQ18gmPlo109NqhDEA_3TJwUjRp3AnL68U4MRVmfFzmspi-vyCS9yZSdyf-q_VYQS6jSgHUQ",
+        "token_type": "Bearer",
+        "expires_in": 86400,
+        "user_info": {
+            "email": "test2@test.com",
+            "user_id": 10,
+            "full_name": "test2@test.com"
+        },
+        "timestamp": "2025-07-24 02:53:37"
+    },
+    "success": true,
+    "message": "Inicio de sesión exitoso"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="request-login-de-user-responses-7a7b639d-ff64-49be-af1b-1ba10880e790">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:04:19 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "access_token": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsInN1YiI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsImlhdCI6MTc1MzM1ODY1OSwiZXhwIjoxNzUzNDQ1MDU5fQ.nlj-24Z__IKOb8ca42ySXtZfuPJJUUPB3L_FHmt-dmqlonTWmriJGQUT1Qp30KvK1lxN0A5a7ytG11NXFur_qg",
+        "token_type": "Bearer",
+        "expires_in": 86400,
+        "user_info": {
+            "email": "andres.vorja@test.com",
+            "user_id": 11,
+            "full_name": "andres.vorja@test.com"
+        },
+        "timestamp": "2025-07-24 07:04:19"
+    },
+    "success": true,
+    "message": "Inicio de sesión exitoso"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="request-login-de-user-responses-769e064b-4ae7-487a-b0c5-27c78f694951">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Fri, 25 Jul 2025 05:50:48 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "access_token": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6Im5ld3Rlc3RlckB0ZXN0LmNvbSIsInN1YiI6Im5ld3Rlc3RlckB0ZXN0LmNvbSIsImlhdCI6MTc1MzQyMjY0OCwiZXhwIjoxNzUzNTA5MDQ4fQ.zCQxwom5w6FJapXfwwo5mRbx5nZfuOwkJp6PDsEJcL76CAQMfdd5DFUK-DfzWRZw6yZP_N_jnhNjpMlytXxaAg",
+        "token_type": "Bearer",
+        "expires_in": 86400,
+        "user_info": {
+            "email": "newtester@test.com",
+            "user_id": 23,
+            "full_name": "newtester@test.com"
+        },
+        "timestamp": "2025-07-25 00:50:48"
+    },
+    "success": true,
+    "message": "Inicio de sesión exitoso"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-crear-auto">
+                        Crear auto
+                        <a href="#request-crear-auto"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-crear-auto-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-crear-auto-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-crear-auto-example-curl">
+                                <pre><code class="hljs curl">curl -X POST -d '{
+    "brand": "Nissan",
+    "model": "Para Eliminar",
+    "year": 1980,
+    "plateNumber": "AAT003", 
+    "color": "Gris"
+}' "http://localhost:8080/api/v1/cars"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-crear-auto-example-http">
+                                <pre><code class="hljs http">POST /api/v1/cars HTTP/1.1
+Host: localhost:8080
+
+{
+    "brand": "Nissan",
+    "model": "Para Eliminar",
+    "year": 1980,
+    "plateNumber": "AAT003", 
+    "color": "Gris"
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-crear-auto-responses-dde4d715-8292-49a4-8a87-01f89e0100ae" data-toggle="tab">
+                                    
+                                    Crear auto que existe
+                                    
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#request-crear-auto-responses-eea252cb-d9c2-4a8d-b311-daa57619f3a3" data-toggle="tab">
+                                    
+                                    Crear Auto Nuevo
+                                    
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#request-crear-auto-responses-36e0d260-7b2b-4373-a9ac-9bb3c09ffccc" data-toggle="tab">
+                                    
+                                    Auto de Borja USer
+                                    
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#request-crear-auto-responses-0fdb701f-20a2-4722-b4f2-784dea737081" data-toggle="tab">
+                                    
+                                    Mazda2 Borja USer
+                                    
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#request-crear-auto-responses-3c134ac6-68cb-48a3-b8d6-ee4ebe4e76ae" data-toggle="tab">
+                                    
+                                    Carro Juan Perez proximo a eliminar
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-crear-auto-responses-dde4d715-8292-49a4-8a87-01f89e0100ae">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>409 Conflict</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 08:00:17 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "timestamp": "2025-07-24 03:00:17",
+    "status": 409,
+    "error": "Car Already Exists",
+    "message": "Ya existe un auto con esa placa con placa: ABC123",
+    "path": "/api/v1/cars",
+    "method": "POST",
+    "details": "Ya existe un auto con esa placa en el sistema"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="request-crear-auto-responses-eea252cb-d9c2-4a8d-b311-daa57619f3a3">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>201 Created</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 08:03:33 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "brand": "Nissan",
+        "model": "March",
+        "year": 2020,
+        "color": "Blanco",
+        "car_id": 29,
+        "plate_number": "ABT103",
+        "photo_url": null,
+        "full_description": "Nissan March 2020",
+        "is_vintage": false,
+        "is_new": false,
+        "age_years": 5,
+        "owner_id": 10,
+        "created_at": "2025-07-24 03:03:33",
+        "updated_at": "2025-07-24 03:03:33"
+    },
+    "success": true,
+    "message": "Recurso creado exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="request-crear-auto-responses-36e0d260-7b2b-4373-a9ac-9bb3c09ffccc">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>201 Created</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 08:12:47 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "brand": "Audi",
+        "model": "R5",
+        "year": 2025,
+        "color": "Rojo",
+        "car_id": 30,
+        "plate_number": "ZZZ005",
+        "photo_url": null,
+        "full_description": "Audi R5 2025",
+        "is_vintage": false,
+        "is_new": true,
+        "age_years": 0,
+        "owner_id": 11,
+        "created_at": "2025-07-24 03:12:47",
+        "updated_at": "2025-07-24 03:12:47"
+    },
+    "success": true,
+    "message": "Recurso creado exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="request-crear-auto-responses-0fdb701f-20a2-4722-b4f2-784dea737081">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>201 Created</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 08:14:20 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "brand": "Mazda 2",
+        "model": "xr",
+        "year": 2025,
+        "color": "Negro",
+        "car_id": 31,
+        "plate_number": "NSK456",
+        "photo_url": null,
+        "full_description": "Mazda 2 xr 2025",
+        "is_vintage": false,
+        "is_new": true,
+        "age_years": 0,
+        "owner_id": 11,
+        "created_at": "2025-07-24 03:14:20",
+        "updated_at": "2025-07-24 03:14:20"
+    },
+    "success": true,
+    "message": "Recurso creado exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="request-crear-auto-responses-3c134ac6-68cb-48a3-b8d6-ee4ebe4e76ae">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>201 Created</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Fri, 25 Jul 2025 06:33:27 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "brand": "Nissan",
+        "model": "Para Eliminar",
+        "year": 1980,
+        "color": "Gris",
+        "car_id": 32,
+        "plate_number": "AAT003",
+        "photo_url": null,
+        "full_description": "Nissan Para Eliminar 1980",
+        "is_vintage": true,
+        "is_new": false,
+        "age_years": 45,
+        "owner_id": 1,
+        "created_at": "2025-07-25 01:33:27",
+        "updated_at": "2025-07-25 01:33:27"
+    },
+    "success": true,
+    "message": "Recurso creado exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-listar-autos-del-usuario">
+                        Listar Autos del Usuario
+                        <a href="#request-listar-autos-del-usuario"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-listar-autos-del-usuario-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-listar-autos-del-usuario-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-listar-autos-del-usuario-example-curl">
+                                <pre><code class="hljs curl">curl -X GET "http://localhost:8080/api/v1/cars"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-listar-autos-del-usuario-example-http">
+                                <pre><code class="hljs http">GET /api/v1/cars HTTP/1.1
+Host: localhost:8080</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-listar-autos-del-usuario-responses-6d0e2c08-0863-4228-82dd-1678097af143" data-toggle="tab">
+                                    
+                                    Carro de User test
+                                    
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#request-listar-autos-del-usuario-responses-5a40d606-06ba-4fc5-acfb-e580e024481f" data-toggle="tab">
+                                    
+                                    Listar Autos de Borja
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-listar-autos-del-usuario-responses-6d0e2c08-0863-4228-82dd-1678097af143">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 08:05:32 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "total": 1,
+    "data": [
+        {
+            "brand": "Nissan",
+            "model": "March",
+            "year": 2020,
+            "color": "Blanco",
+            "car_id": 29,
+            "plate_number": "ABT103",
+            "photo_url": null,
+            "full_description": "Nissan March 2020",
+            "is_vintage": false,
+            "is_new": false,
+            "age_years": 5,
+            "owner_id": 10,
+            "created_at": "2025-07-24 03:03:33",
+            "updated_at": "2025-07-24 03:03:33"
+        }
+    ],
+    "success": true,
+    "message": "Autos obtenidos exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="request-listar-autos-del-usuario-responses-5a40d606-06ba-4fc5-acfb-e580e024481f">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 08:15:10 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "total": 2,
+    "data": [
+        {
+            "brand": "Mazda 2",
+            "model": "xr",
+            "year": 2025,
+            "color": "Negro",
+            "car_id": 31,
+            "plate_number": "NSK456",
+            "photo_url": null,
+            "full_description": "Mazda 2 xr 2025",
+            "is_vintage": false,
+            "is_new": true,
+            "age_years": 0,
+            "owner_id": 11,
+            "created_at": "2025-07-24 03:14:20",
+            "updated_at": "2025-07-24 03:14:20"
+        },
+        {
+            "brand": "Audi",
+            "model": "R5",
+            "year": 2025,
+            "color": "Rojo",
+            "car_id": 30,
+            "plate_number": "ZZZ005",
+            "photo_url": null,
+            "full_description": "Audi R5 2025",
+            "is_vintage": false,
+            "is_new": true,
+            "age_years": 0,
+            "owner_id": 11,
+            "created_at": "2025-07-24 03:12:47",
+            "updated_at": "2025-07-24 03:12:47"
+        }
+    ],
+    "success": true,
+    "message": "Autos obtenidos exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-eliminar-auto">
+                        Eliminar Auto
+                        <a href="#request-eliminar-auto"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-eliminar-auto-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-eliminar-auto-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-eliminar-auto-example-curl">
+                                <pre><code class="hljs curl">curl -X DELETE "http://localhost:8080/api/v1/cars/32"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-eliminar-auto-example-http">
+                                <pre><code class="hljs http">DELETE /api/v1/cars/32 HTTP/1.1
+Host: localhost:8080</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-eliminar-auto-responses-5f6e1d06-b1dd-45c4-beb3-0ba7d9d97718" data-toggle="tab">
+                                    
+                                    Response
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-eliminar-auto-responses-5f6e1d06-b1dd-45c4-beb3-0ba7d9d97718">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Fri, 25 Jul 2025 06:35:27 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "success": true,
+    "message": "Recurso eliminado exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-obtener-perfil-del-usuario">
+                        Obtener perfil del usuario
+                        <a href="#request-obtener-perfil-del-usuario"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-obtener-perfil-del-usuario-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-obtener-perfil-del-usuario-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-obtener-perfil-del-usuario-example-curl">
+                                <pre><code class="hljs curl">curl -X GET ""</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-obtener-perfil-del-usuario-example-http">
+                                <pre><code class="hljs http">GET / HTTP/1.1
+Host: </code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-obtener-perfil-del-usuario-responses-e0a9daf9-c01f-4a0f-bbf3-bce74e7c16d6" data-toggle="tab">
+                                    
+                                    Response
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-obtener-perfil-del-usuario-responses-e0a9daf9-c01f-4a0f-bbf3-bce74e7c16d6">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 08:16:04 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "email": "andres.vorja@test.com",
+        "user_id": 11,
+        "first_name": "Andres",
+        "last_name": "Borja",
+        "full_name": "Andres Borja",
+        "created_at": "2025-07-24 03:10:28",
+        "updated_at": "2025-07-24 03:10:28",
+        "total_cars": 2
+    },
+    "success": true,
+    "message": "Perfil obtenido exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-modificar-carro">
+                        Modificar Carro
+                        <a href="#request-modificar-carro"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-modificar-carro-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-modificar-carro-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-modificar-carro-example-curl">
+                                <pre><code class="hljs curl">curl -X PUT -d '{
+    "color": "Naranja"
+}' "http://localhost:8080/api/v1/cars/31"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-modificar-carro-example-http">
+                                <pre><code class="hljs http">PUT /api/v1/cars/31 HTTP/1.1
+Host: localhost:8080
+
+{
+    "color": "Naranja"
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-modificar-carro-responses-2fdacefd-f93a-45b7-9f81-a41cea343333" data-toggle="tab">
+                                    
+                                    Response
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-modificar-carro-responses-2fdacefd-f93a-45b7-9f81-a41cea343333">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 08:29:29 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "brand": "Mazda 2",
+        "model": "xr",
+        "year": 2025,
+        "color": "Morado",
+        "car_id": 31,
+        "plate_number": "NSK456",
+        "photo_url": null,
+        "full_description": "Mazda 2 xr 2025",
+        "is_vintage": false,
+        "is_new": true,
+        "age_years": 0,
+        "owner_id": 11,
+        "created_at": "2025-07-24 03:14:20",
+        "updated_at": "2025-07-24 03:29:29"
+    },
+    "success": true,
+    "message": "Recurso actualizado exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-health-check-para-search">
+                        Health check para search
+                        <a href="#request-health-check-para-search"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-health-check-para-search-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-health-check-para-search-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-health-check-para-search-example-curl">
+                                <pre><code class="hljs curl">curl -X GET "http://localhost:8080/api/v1/cars/search/health"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-health-check-para-search-example-http">
+                                <pre><code class="hljs http">GET /api/v1/cars/search/health HTTP/1.1
+Host: localhost:8080</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-health-check-para-search-responses-e0a95381-8859-4ea4-b0a2-644b8a6c9925" data-toggle="tab">
+                                    
+                                    Response
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-health-check-para-search-responses-e0a95381-8859-4ea4-b0a2-644b8a6c9925">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:00:35 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "endpoints_available": [
+        "POST /search",
+        "GET /quick",
+        "GET /plate/{plate}",
+        "GET /brand/{brand}",
+        "GET /model/{model}",
+        "GET /year/{year}",
+        "GET /vintage",
+        "GET /new",
+        "GET /statistics"
+    ],
+    "service": "Car Search Service",
+    "status": "UP",
+    "timestamp": 1753358435282
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-statistics">
+                        Statistics
+                        <a href="#request-statistics"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-statistics-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-statistics-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-statistics-example-curl">
+                                <pre><code class="hljs curl">curl -X GET "http://localhost:8080/api/v1/cars/search/statistics"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-statistics-example-http">
+                                <pre><code class="hljs http">GET /api/v1/cars/search/statistics HTTP/1.1
+Host: localhost:8080</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-statistics-responses-03425fad-e655-4c0a-b80a-7ca764e2a387" data-toggle="tab">
+                                    
+                                    Response
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-statistics-responses-03425fad-e655-4c0a-b80a-7ca764e2a387">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:12:24 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "average_year": 2025,
+        "year_range": 0,
+        "total_cars": 2,
+        "new_count": 2,
+        "vintage_count": 0,
+        "with_photo_count": 0,
+        "min_year": 2025,
+        "max_year": 2025,
+        "most_common_brands": [
+            "audi",
+            "mazda 2"
+        ]
+    },
+    "success": true,
+    "message": "Estadísticas obtenidas exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-b-squeda-r-pida">
+                        Búsqueda rápida
+                        <a href="#request-b-squeda-r-pida"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-b-squeda-r-pida-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-b-squeda-r-pida-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-b-squeda-r-pida-example-curl">
+                                <pre><code class="hljs curl">curl -X GET ""</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-b-squeda-r-pida-example-http">
+                                <pre><code class="hljs http">GET / HTTP/1.1
+Host: </code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-b-squeda-r-pida-responses-40681b0f-09de-4bbb-9b68-ce233a95fca3" data-toggle="tab">
+                                    
+                                    Búsqueda rápida de Borja
+                                    
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#request-b-squeda-r-pida-responses-99fda149-8973-463c-b7e3-f91cee8a5247" data-toggle="tab">
+                                    
+                                    Busqueda Borja Toyota: sin resultados
+                                    
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#request-b-squeda-r-pida-responses-eefb734d-766b-4fa9-9e84-236753261404" data-toggle="tab">
+                                    
+                                    Busqueda Borja Mazda: encontrado
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-b-squeda-r-pida-responses-40681b0f-09de-4bbb-9b68-ce233a95fca3">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:14:40 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": [
+        {
+            "brand": "Mazda 2",
+            "model": "xr",
+            "year": 2025,
+            "color": "Morado",
+            "car_id": 31,
+            "plate_number": "NSK456",
+            "photo_url": null,
+            "full_description": "Mazda 2 xr 2025",
+            "is_vintage": false,
+            "is_new": true,
+            "age_years": 0,
+            "owner_id": 11,
+            "created_at": "2025-07-24 03:14:20",
+            "updated_at": "2025-07-24 03:29:29"
+        },
+        {
+            "brand": "Audi",
+            "model": "R5",
+            "year": 2025,
+            "color": "Rojo",
+            "car_id": 30,
+            "plate_number": "ZZZ005",
+            "photo_url": null,
+            "full_description": "Audi R5 2025",
+            "is_vintage": false,
+            "is_new": true,
+            "age_years": 0,
+            "owner_id": 11,
+            "created_at": "2025-07-24 03:12:47",
+            "updated_at": "2025-07-24 03:12:47"
+        }
+    ],
+    "success": true,
+    "search_term": null,
+    "message": "Búsqueda rápida completada",
+    "total_results": 2
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="request-b-squeda-r-pida-responses-99fda149-8973-463c-b7e3-f91cee8a5247">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:15:38 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": [],
+    "success": true,
+    "search_term": "toyota",
+    "message": "Búsqueda rápida completada",
+    "total_results": 0
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="request-b-squeda-r-pida-responses-eefb734d-766b-4fa9-9e84-236753261404">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:16:22 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": [
+        {
+            "brand": "Mazda 2",
+            "model": "xr",
+            "year": 2025,
+            "color": "Morado",
+            "car_id": 31,
+            "plate_number": "NSK456",
+            "photo_url": null,
+            "full_description": "Mazda 2 xr 2025",
+            "is_vintage": false,
+            "is_new": true,
+            "age_years": 0,
+            "owner_id": 11,
+            "created_at": "2025-07-24 03:14:20",
+            "updated_at": "2025-07-24 03:29:29"
+        }
+    ],
+    "success": true,
+    "search_term": "mazda",
+    "message": "Búsqueda rápida completada",
+    "total_results": 1
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-b-squeda">
+                        Búsqueda
+                        <a href="#request-b-squeda"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-b-squeda-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-b-squeda-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-b-squeda-example-curl">
+                                <pre><code class="hljs curl">curl -X POST -d '{
+    "searchTerm": "toyota"
+}' "http://localhost:8080/api/v1/cars/search"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-b-squeda-example-http">
+                                <pre><code class="hljs http">POST /api/v1/cars/search HTTP/1.1
+Host: localhost:8080
+
+{
+    "searchTerm": "toyota"
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-b-squeda-responses-2ac1782b-523b-40cb-97cb-7c1d7badfe68" data-toggle="tab">
+                                    
+                                    Response
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-b-squeda-responses-2ac1782b-523b-40cb-97cb-7c1d7badfe68">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:22:11 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "cars": [],
+        "search_metadata": {
+            "total_results": 0,
+            "applied_filters": "Término: 'toyota'",
+            "sort_by": "createdAt",
+            "sort_direction": "desc",
+            "search_term": "toyota"
+        },
+        "search_statistics": {
+            "total_count": 0,
+            "vintage_count": 0,
+            "new_count": 0,
+            "with_photo_count": 0,
+            "most_common_brand": null,
+            "year_range": null,
+            "brand_distribution": null
+        }
+    },
+    "success": true,
+    "message": "Búsqueda completada exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-filtro-por-a-o">
+                        Filtro por año
+                        <a href="#request-filtro-por-a-o"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-filtro-por-a-o-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-filtro-por-a-o-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-filtro-por-a-o-example-curl">
+                                <pre><code class="hljs curl">curl -X GET "http://localhost:8080/api/v1/cars/search/year/2020"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-filtro-por-a-o-example-http">
+                                <pre><code class="hljs http">GET /api/v1/cars/search/year/2020 HTTP/1.1
+Host: localhost:8080</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-filtro-por-a-o-responses-9398ed7a-ee1b-438e-ba13-f0fc08e89c55" data-toggle="tab">
+                                    
+                                    Filtro por año usuario Borja
+                                    
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#request-filtro-por-a-o-responses-deb1c8b4-f18f-4fba-8f73-db3da8c9f0bb" data-toggle="tab">
+                                    
+                                    Filtro por año, Borja
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-filtro-por-a-o-responses-9398ed7a-ee1b-438e-ba13-f0fc08e89c55">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:24:35 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "filter_year": 2020,
+    "data": [],
+    "success": true,
+    "message": "Filtro por año aplicado",
+    "total_results": 0
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="request-filtro-por-a-o-responses-deb1c8b4-f18f-4fba-8f73-db3da8c9f0bb">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:25:42 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "filter_year": 2025,
+    "data": [
+        {
+            "brand": "Mazda 2",
+            "model": "xr",
+            "year": 2025,
+            "color": "Morado",
+            "car_id": 31,
+            "plate_number": "NSK456",
+            "photo_url": null,
+            "full_description": "Mazda 2 xr 2025",
+            "is_vintage": false,
+            "is_new": true,
+            "age_years": 0,
+            "owner_id": 11,
+            "created_at": "2025-07-24 03:14:20",
+            "updated_at": "2025-07-24 03:29:29"
+        },
+        {
+            "brand": "Audi",
+            "model": "R5",
+            "year": 2025,
+            "color": "Rojo",
+            "car_id": 30,
+            "plate_number": "ZZZ005",
+            "photo_url": null,
+            "full_description": "Audi R5 2025",
+            "is_vintage": false,
+            "is_new": true,
+            "age_years": 0,
+            "owner_id": 11,
+            "created_at": "2025-07-24 03:12:47",
+            "updated_at": "2025-07-24 03:12:47"
+        }
+    ],
+    "success": true,
+    "message": "Filtro por año aplicado",
+    "total_results": 2
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-filtro-por-modelo">
+                        Filtro por modelo
+                        <a href="#request-filtro-por-modelo"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-filtro-por-modelo-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-filtro-por-modelo-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-filtro-por-modelo-example-curl">
+                                <pre><code class="hljs curl">curl -X GET "http://localhost:8080/api/v1/cars/search/model/Corolla"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-filtro-por-modelo-example-http">
+                                <pre><code class="hljs http">GET /api/v1/cars/search/model/Corolla HTTP/1.1
+Host: localhost:8080</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-filtro-por-modelo-responses-14004b16-b6d4-451d-af44-9627ca4a4877" data-toggle="tab">
+                                    
+                                    Response
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-filtro-por-modelo-responses-14004b16-b6d4-451d-af44-9627ca4a4877">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:26:38 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "filter_model": "Corolla",
+    "data": [],
+    "success": true,
+    "message": "Filtro por modelo aplicado",
+    "total_results": 0
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-filtro-por-modelo">
+                        Filtro por modelo
+                        <a href="#request-filtro-por-modelo"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-filtro-por-modelo-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-filtro-por-modelo-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-filtro-por-modelo-example-curl">
+                                <pre><code class="hljs curl">curl -X GET "http://localhost:8080/api/v1/cars/search/model/xr"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-filtro-por-modelo-example-http">
+                                <pre><code class="hljs http">GET /api/v1/cars/search/model/xr HTTP/1.1
+Host: localhost:8080</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-filtro-por-modelo-responses-0846c422-8f09-4d9d-86d5-23d198abde12" data-toggle="tab">
+                                    
+                                    Response
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-filtro-por-modelo-responses-0846c422-8f09-4d9d-86d5-23d198abde12">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:32:21 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "filter_model": "xr",
+    "data": [
+        {
+            "brand": "Mazda 2",
+            "model": "xr",
+            "year": 2025,
+            "color": "Morado",
+            "car_id": 31,
+            "plate_number": "NSK456",
+            "photo_url": null,
+            "full_description": "Mazda 2 xr 2025",
+            "is_vintage": false,
+            "is_new": true,
+            "age_years": 0,
+            "owner_id": 11,
+            "created_at": "2025-07-24 03:14:20",
+            "updated_at": "2025-07-24 03:29:29"
+        }
+    ],
+    "success": true,
+    "message": "Filtro por modelo aplicado",
+    "total_results": 1
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-filtrar-por-marca">
+                        Filtrar por marca
+                        <a href="#request-filtrar-por-marca"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-filtrar-por-marca-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-filtrar-por-marca-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-filtrar-por-marca-example-curl">
+                                <pre><code class="hljs curl">curl -X GET ""</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-filtrar-por-marca-example-http">
+                                <pre><code class="hljs http">GET / HTTP/1.1
+Host: </code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-filtrar-por-marca-responses-9a958da1-a066-4875-8ae4-c8cb44c94367" data-toggle="tab">
+                                    
+                                    Response
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-filtrar-por-marca-responses-9a958da1-a066-4875-8ae4-c8cb44c94367">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:34:09 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": [
+        {
+            "brand": "Mazda 2",
+            "model": "xr",
+            "year": 2025,
+            "color": "Morado",
+            "car_id": 31,
+            "plate_number": "NSK456",
+            "photo_url": null,
+            "full_description": "Mazda 2 xr 2025",
+            "is_vintage": false,
+            "is_new": true,
+            "age_years": 0,
+            "owner_id": 11,
+            "created_at": "2025-07-24 03:14:20",
+            "updated_at": "2025-07-24 03:29:29"
+        }
+    ],
+    "success": true,
+    "filter_brand": "Mazda",
+    "message": "Filtro por marca aplicado",
+    "total_results": 1
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-filtro-por-placa">
+                        Filtro por placa
+                        <a href="#request-filtro-por-placa"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-filtro-por-placa-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-filtro-por-placa-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-filtro-por-placa-example-curl">
+                                <pre><code class="hljs curl">curl -X GET ""</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-filtro-por-placa-example-http">
+                                <pre><code class="hljs http">GET / HTTP/1.1
+Host: </code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-filtro-por-placa-responses-1b9a908b-3a76-4e65-8c40-7ac35d30a572" data-toggle="tab">
+                                    
+                                    Response
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-filtro-por-placa-responses-1b9a908b-3a76-4e65-8c40-7ac35d30a572">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:36:02 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "brand": "Mazda 2",
+        "model": "xr",
+        "year": 2025,
+        "color": "Morado",
+        "car_id": 31,
+        "plate_number": "NSK456",
+        "photo_url": null,
+        "full_description": "Mazda 2 xr 2025",
+        "is_vintage": false,
+        "is_new": true,
+        "age_years": 0,
+        "owner_id": 11,
+        "created_at": "2025-07-24 03:14:20",
+        "updated_at": "2025-07-24 03:29:29"
+    },
+    "success": true,
+    "message": "Auto encontrado"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-filtros-especiales">
+                        Filtros especiales
+                        <a href="#request-filtros-especiales"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-filtros-especiales-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-filtros-especiales-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-filtros-especiales-example-curl">
+                                <pre><code class="hljs curl">curl -X GET "http://localhost:8080/api/v1/cars/search/new"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-filtros-especiales-example-http">
+                                <pre><code class="hljs http">GET /api/v1/cars/search/new HTTP/1.1
+Host: localhost:8080</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-filtros-especiales-responses-623f862b-fddf-493a-9831-676ecdeb4c67" data-toggle="tab">
+                                    
+                                    Filtro Carros nuevos usuario Borja
+                                    
+                                </a>
+                            </li>
+                            
+                            <li role="presentation">
+                                <a href="#request-filtros-especiales-responses-47bd6840-17bc-4710-83ae-a174b7a76232" data-toggle="tab">
+                                    
+                                    Filtro Carro Clásico
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-filtros-especiales-responses-623f862b-fddf-493a-9831-676ecdeb4c67">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:37:08 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": [
+        {
+            "brand": "Mazda 2",
+            "model": "xr",
+            "year": 2025,
+            "color": "Morado",
+            "car_id": 31,
+            "plate_number": "NSK456",
+            "photo_url": null,
+            "full_description": "Mazda 2 xr 2025",
+            "is_vintage": false,
+            "is_new": true,
+            "age_years": 0,
+            "owner_id": 11,
+            "created_at": "2025-07-24 03:14:20",
+            "updated_at": "2025-07-24 03:29:29"
+        },
+        {
+            "brand": "Audi",
+            "model": "R5",
+            "year": 2025,
+            "color": "Rojo",
+            "car_id": 30,
+            "plate_number": "ZZZ005",
+            "photo_url": null,
+            "full_description": "Audi R5 2025",
+            "is_vintage": false,
+            "is_new": true,
+            "age_years": 0,
+            "owner_id": 11,
+            "created_at": "2025-07-24 03:12:47",
+            "updated_at": "2025-07-24 03:12:47"
+        }
+    ],
+    "filter_type": "new",
+    "success": true,
+    "message": "Autos nuevos obtenidos",
+    "total_results": 2
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                            <div class="tab-pane" id="request-filtros-especiales-responses-47bd6840-17bc-4710-83ae-a174b7a76232">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Thu, 24 Jul 2025 12:56:21 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": [],
+    "filter_type": "vintage",
+    "success": true,
+    "message": "Autos vintage obtenidos",
+    "total_results": 0
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-craerusuario-a-eliminar">
+                        CraerUsuario a Eliminar
+                        <a href="#request-craerusuario-a-eliminar"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-craerusuario-a-eliminar-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-craerusuario-a-eliminar-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-craerusuario-a-eliminar-example-curl">
+                                <pre><code class="hljs curl">curl -X POST "http://localhost:8080/api/v1/auth/register"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-craerusuario-a-eliminar-example-http">
+                                <pre><code class="hljs http">POST /api/v1/auth/register HTTP/1.1
+Host: localhost:8080</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-craerusuario-a-eliminar-responses-64e5a36e-20b9-45ea-8ea5-4fc16bdeedd8" data-toggle="tab">
+                                    
+                                    Response
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-craerusuario-a-eliminar-responses-64e5a36e-20b9-45ea-8ea5-4fc16bdeedd8">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>201 Created</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Fri, 25 Jul 2025 06:27:09 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "data": {
+        "access_token": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjEyLCJlbWFpbCI6ImVsaW1pbmFkb0BvdXQubmV0Iiwic3ViIjoiZWxpbWluYWRvQG91dC5uZXQiLCJpYXQiOjE3NTM0MjQ4MjksImV4cCI6MTc1MzUxMTIyOX0.GeKMwg674tduY03067n4hotlszGeql8Rx5ldukJlwAIJK7GSQCsAaHo4ldbwrNVaHY12_cgGnL_Amgelshs_xg",
+        "token_type": "Bearer",
+        "expires_in": 86400,
+        "user_info": {
+            "email": "eliminado@out.net",
+            "user_id": 12,
+            "full_name": "Usuario próximo Eliminado"
+        },
+        "timestamp": "2025-07-25 01:27:09"
+    },
+    "success": true,
+    "message": "Usuario registrado exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-eliminar-user">
+                        eliminar user
+                        <a href="#request-eliminar-user"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-eliminar-user-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-eliminar-user-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-eliminar-user-example-curl">
+                                <pre><code class="hljs curl">curl -X DELETE "http://localhost:8080/api/v1/user/profile"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-eliminar-user-example-http">
+                                <pre><code class="hljs http">DELETE /api/v1/user/profile HTTP/1.1
+Host: localhost:8080</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            
+                            <li role="presentation" class="active">
+                                <a href="#request-eliminar-user-responses-5e0295ce-e93c-4068-842c-a4c7f0f0df25" data-toggle="tab">
+                                    
+                                    Response
+                                    
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content">
+                            
+                            <div class="tab-pane active" id="request-eliminar-user-responses-5e0295ce-e93c-4068-842c-a4c7f0f0df25">
+                                <table class="table table-bordered">
+                                    <tr><th style="width: 20%;">Status</th><td>200 OK</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Origin</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Method</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Vary</th><td>Access-Control-Request-Headers</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Content-Type-Options</th><td>nosniff</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-XSS-Protection</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Cache-Control</th><td>no-cache, no-store, max-age=0, must-revalidate</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Pragma</th><td>no-cache</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Expires</th><td>0</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">X-Frame-Options</th><td>DENY</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Content-Type</th><td>application/json</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Transfer-Encoding</th><td>chunked</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Date</th><td>Fri, 25 Jul 2025 06:31:29 GMT</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Keep-Alive</th><td>timeout=60</td></tr>
+                                    
+                                    <tr><th style="width: 20%;">Connection</th><td>keep-alive</td></tr>
+                                    
+                                    
+                                    
+                                    <tr><td class="response-text-sample" colspan="2">
+                                        <pre><code>{
+    "success": true,
+    "message": "Cuenta eliminada exitosamente"
+}</code></pre>
+                                    </td></tr>
+                                    
+                                    
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <hr>
+                </div>
+                
+
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("table:not(.table)").addClass('table table-bordered');
+    });
+</script>
+</body>
+</html>

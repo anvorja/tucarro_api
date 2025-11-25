@@ -1,0 +1,3836 @@
+{
+	"info": {
+		"_postman_id": "157ddeab-541f-4a69-a8da-dfc0efe8bc4f",
+		"name": "tucarro.com",
+		"description": "Aplicación web para que los usuarios registren y gestionen información de sus autos.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26920439"
+	},
+	"item": [
+		{
+			"name": "Endpoint Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/test/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"test",
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Test Endpoint",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/test/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"test",
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 07:49:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Test endpoint working\",\n    \"status\": \"UP\",\n    \"timestamp\": 1753343377418\n}"
+				}
+			]
+		},
+		{
+			"name": "Registro de User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Test mejia\",\n    \"lastName\": \"User kok\", \n    \"email\": \"test2@test.com\",\n    \"password\": \"password123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "registro user test2@test.com",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Test mejia\",\n    \"lastName\": \"User kok\", \n    \"email\": \"test2@test.com\",\n    \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 07:52:16 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjEwLCJlbWFpbCI6InRlc3QyQHRlc3QuY29tIiwic3ViIjoidGVzdDJAdGVzdC5jb20iLCJpYXQiOjE3NTMzNDM1MzYsImV4cCI6MTc1MzQyOTkzNn0.ANuDfsnl5fRQDcvCeLuIw1AwwlEde91H42b0w4YNr7cej7DvrjXXBCP3mMLEi-Gh97QYVXqyMeEofV8zL3Vb3g\",\n        \"token_type\": \"Bearer\",\n        \"expires_in\": 86400,\n        \"user_info\": {\n            \"email\": \"test2@test.com\",\n            \"user_id\": 10,\n            \"full_name\": \"Test mejia User kok\"\n        },\n        \"timestamp\": \"2025-07-24 02:52:16\"\n    },\n    \"success\": true,\n    \"message\": \"Usuario registrado exitosamente\"\n}"
+				},
+				{
+					"name": "Borja Registro",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Andres\",\n    \"lastName\": \"Borja\", \n    \"email\": \"andres.vorja@test.com\",\n    \"password\": \"borja123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 08:10:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsInN1YiI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsImlhdCI6MTc1MzM0NDYyOCwiZXhwIjoxNzUzNDMxMDI4fQ.OZ-7FjKWVqCzvbUgjL1PqvJafVzzrN4XAWQuzIbmWvys5gmOKJaeVu4sdswH3Mxd262hqCe9z6wRSX1qMUXatA\",\n        \"token_type\": \"Bearer\",\n        \"expires_in\": 86400,\n        \"user_info\": {\n            \"email\": \"andres.vorja@test.com\",\n            \"user_id\": 11,\n            \"full_name\": \"Andres Borja\"\n        },\n        \"timestamp\": \"2025-07-24 03:10:28\"\n    },\n    \"success\": true,\n    \"message\": \"Usuario registrado exitosamente\"\n}"
+				},
+				{
+					"name": "Registro de NuevoUser",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Nuevo user\",\n    \"lastName\": \"Ukok\", \n    \"email\": \"newtester@test.com\",\n    \"password\": \"demo123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 25 Jul 2025 05:49:55 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6Im5ld3Rlc3RlckB0ZXN0LmNvbSIsInN1YiI6Im5ld3Rlc3RlckB0ZXN0LmNvbSIsImlhdCI6MTc1MzQyMjU5NSwiZXhwIjoxNzUzNTA4OTk1fQ.9Bc4ywy5kwAyNE9ev-9SEPbKnERoUQhwQO_nbVuwgzs7zlPMnWmRtNPHN7VL0MLM9O4AtTTHBOs8K4oqnIiUbw\",\n        \"token_type\": \"Bearer\",\n        \"expires_in\": 86400,\n        \"user_info\": {\n            \"email\": \"newtester@test.com\",\n            \"user_id\": 23,\n            \"full_name\": \"Nuevo user Ukok\"\n        },\n        \"timestamp\": \"2025-07-25 00:49:55\"\n    },\n    \"success\": true,\n    \"message\": \"Usuario registrado exitosamente\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login de user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test2@test.com\",\n    \"password\": \"password123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login de test2@test",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test2@test.com\",\n    \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 07:53:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjEwLCJlbWFpbCI6InRlc3QyQHRlc3QuY29tIiwic3ViIjoidGVzdDJAdGVzdC5jb20iLCJpYXQiOjE3NTMzNDM2MTcsImV4cCI6MTc1MzQzMDAxN30.7xCqT71IgnjOStcQ18gmPlo109NqhDEA_3TJwUjRp3AnL68U4MRVmfFzmspi-vyCS9yZSdyf-q_VYQS6jSgHUQ\",\n        \"token_type\": \"Bearer\",\n        \"expires_in\": 86400,\n        \"user_info\": {\n            \"email\": \"test2@test.com\",\n            \"user_id\": 10,\n            \"full_name\": \"test2@test.com\"\n        },\n        \"timestamp\": \"2025-07-24 02:53:37\"\n    },\n    \"success\": true,\n    \"message\": \"Inicio de sesión exitoso\"\n}"
+				},
+				{
+					"name": "Borja Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"andres.vorja@test.com\",\n    \"password\": \"borja123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:04:19 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsInN1YiI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsImlhdCI6MTc1MzM1ODY1OSwiZXhwIjoxNzUzNDQ1MDU5fQ.nlj-24Z__IKOb8ca42ySXtZfuPJJUUPB3L_FHmt-dmqlonTWmriJGQUT1Qp30KvK1lxN0A5a7ytG11NXFur_qg\",\n        \"token_type\": \"Bearer\",\n        \"expires_in\": 86400,\n        \"user_info\": {\n            \"email\": \"andres.vorja@test.com\",\n            \"user_id\": 11,\n            \"full_name\": \"andres.vorja@test.com\"\n        },\n        \"timestamp\": \"2025-07-24 07:04:19\"\n    },\n    \"success\": true,\n    \"message\": \"Inicio de sesión exitoso\"\n}"
+				},
+				{
+					"name": "Login de  NuevoUser",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"newtester@test.com\",\n    \"password\": \"demo123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 25 Jul 2025 05:50:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjIzLCJlbWFpbCI6Im5ld3Rlc3RlckB0ZXN0LmNvbSIsInN1YiI6Im5ld3Rlc3RlckB0ZXN0LmNvbSIsImlhdCI6MTc1MzQyMjY0OCwiZXhwIjoxNzUzNTA5MDQ4fQ.zCQxwom5w6FJapXfwwo5mRbx5nZfuOwkJp6PDsEJcL76CAQMfdd5DFUK-DfzWRZw6yZP_N_jnhNjpMlytXxaAg\",\n        \"token_type\": \"Bearer\",\n        \"expires_in\": 86400,\n        \"user_info\": {\n            \"email\": \"newtester@test.com\",\n            \"user_id\": 23,\n            \"full_name\": \"newtester@test.com\"\n        },\n        \"timestamp\": \"2025-07-25 00:50:48\"\n    },\n    \"success\": true,\n    \"message\": \"Inicio de sesión exitoso\"\n}"
+				},
+				{
+					"name": "Login de Camilo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"camilo@test.com\",\n    \"password\": \"papa123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 02 Aug 2025 11:18:35 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjE0LCJlbWFpbCI6ImNhbWlsb0B0ZXN0LmNvbSIsInN1YiI6ImNhbWlsb0B0ZXN0LmNvbSIsImlhdCI6MTc1NDEzMzUxNSwiZXhwIjoxNzU0MjE5OTE1fQ.001wPilBfcsFIVUXqPafsRPETrieNfPPRvqVDDnnqPBax9031AQn0Crcfgv87zV32OK2y7VI4ZxbhpoUk8jhXw\",\n        \"token_type\": \"Bearer\",\n        \"expires_in\": 86400,\n        \"user_info\": {\n            \"email\": \"camilo@test.com\",\n            \"user_id\": 14,\n            \"full_name\": \"camilo@test.com\"\n        },\n        \"timestamp\": \"2025-08-02 06:18:35\"\n    },\n    \"success\": true,\n    \"message\": \"Inicio de sesión exitoso\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear auto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoianVhbi5wZXJlekB0dWNhcnJvLmNvbSIsInN1YiI6Imp1YW4ucGVyZXpAdHVjYXJyby5jb20iLCJpYXQiOjE3NTM0MjUxNTAsImV4cCI6MTc1MzUxMTU1MH0.M-vsolRphaxnBkZXk95j0pSsG1WL4XL8wQvw3EFjIkikTMSa36rOOIIjbEVETEE4eG5kR27-RGASk3BIyXWgaA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"brand\": \"Nissan\",\n    \"model\": \"Para Eliminar\",\n    \"year\": 1980,\n    \"plateNumber\": \"AAT003\", \n    \"color\": \"Gris\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear auto que existe",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brand\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"year\": 2020,\n    \"plateNumber\": \"ABC123\", \n    \"color\": \"Blanco\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 08:00:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2025-07-24 03:00:17\",\n    \"status\": 409,\n    \"error\": \"Car Already Exists\",\n    \"message\": \"Ya existe un auto con esa placa con placa: ABC123\",\n    \"path\": \"/api/v1/cars\",\n    \"method\": \"POST\",\n    \"details\": \"Ya existe un auto con esa placa en el sistema\"\n}"
+				},
+				{
+					"name": "Crear Auto Nuevo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brand\": \"Nissan\",\n    \"model\": \"March\",\n    \"year\": 2020,\n    \"plateNumber\": \"ABT103\", \n    \"color\": \"Blanco\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 08:03:33 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"brand\": \"Nissan\",\n        \"model\": \"March\",\n        \"year\": 2020,\n        \"color\": \"Blanco\",\n        \"car_id\": 29,\n        \"plate_number\": \"ABT103\",\n        \"photo_url\": null,\n        \"full_description\": \"Nissan March 2020\",\n        \"is_vintage\": false,\n        \"is_new\": false,\n        \"age_years\": 5,\n        \"owner_id\": 10,\n        \"created_at\": \"2025-07-24 03:03:33\",\n        \"updated_at\": \"2025-07-24 03:03:33\"\n    },\n    \"success\": true,\n    \"message\": \"Recurso creado exitosamente\"\n}"
+				},
+				{
+					"name": "Auto de Borja USer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brand\": \"Audi\",\n    \"model\": \"R5\",\n    \"year\": 2025,\n    \"plateNumber\": \"ZZZ005\", \n    \"color\": \"Rojo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 08:12:47 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"brand\": \"Audi\",\n        \"model\": \"R5\",\n        \"year\": 2025,\n        \"color\": \"Rojo\",\n        \"car_id\": 30,\n        \"plate_number\": \"ZZZ005\",\n        \"photo_url\": null,\n        \"full_description\": \"Audi R5 2025\",\n        \"is_vintage\": false,\n        \"is_new\": true,\n        \"age_years\": 0,\n        \"owner_id\": 11,\n        \"created_at\": \"2025-07-24 03:12:47\",\n        \"updated_at\": \"2025-07-24 03:12:47\"\n    },\n    \"success\": true,\n    \"message\": \"Recurso creado exitosamente\"\n}"
+				},
+				{
+					"name": "Mazda2 Borja USer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brand\": \"Mazda 2\",\n    \"model\": \"xr\",\n    \"year\": 2025,\n    \"plateNumber\": \"NSK456\", \n    \"color\": \"Negro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 08:14:20 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"brand\": \"Mazda 2\",\n        \"model\": \"xr\",\n        \"year\": 2025,\n        \"color\": \"Negro\",\n        \"car_id\": 31,\n        \"plate_number\": \"NSK456\",\n        \"photo_url\": null,\n        \"full_description\": \"Mazda 2 xr 2025\",\n        \"is_vintage\": false,\n        \"is_new\": true,\n        \"age_years\": 0,\n        \"owner_id\": 11,\n        \"created_at\": \"2025-07-24 03:14:20\",\n        \"updated_at\": \"2025-07-24 03:14:20\"\n    },\n    \"success\": true,\n    \"message\": \"Recurso creado exitosamente\"\n}"
+				},
+				{
+					"name": "Carro Juan Perez proximo a eliminar",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brand\": \"Nissan\",\n    \"model\": \"Para Eliminar\",\n    \"year\": 1980,\n    \"plateNumber\": \"AAT003\", \n    \"color\": \"Gris\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 25 Jul 2025 06:33:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"brand\": \"Nissan\",\n        \"model\": \"Para Eliminar\",\n        \"year\": 1980,\n        \"color\": \"Gris\",\n        \"car_id\": 32,\n        \"plate_number\": \"AAT003\",\n        \"photo_url\": null,\n        \"full_description\": \"Nissan Para Eliminar 1980\",\n        \"is_vintage\": true,\n        \"is_new\": false,\n        \"age_years\": 45,\n        \"owner_id\": 1,\n        \"created_at\": \"2025-07-25 01:33:27\",\n        \"updated_at\": \"2025-07-25 01:33:27\"\n    },\n    \"success\": true,\n    \"message\": \"Recurso creado exitosamente\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Listar Autos del Usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjEwLCJlbWFpbCI6InRlc3QyQHRlc3QuY29tIiwic3ViIjoidGVzdDJAdGVzdC5jb20iLCJpYXQiOjE3NTMzNDM2MTcsImV4cCI6MTc1MzQzMDAxN30.7xCqT71IgnjOStcQ18gmPlo109NqhDEA_3TJwUjRp3AnL68U4MRVmfFzmspi-vyCS9yZSdyf-q_VYQS6jSgHUQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Carro de User test",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 08:05:32 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"total\": 1,\n    \"data\": [\n        {\n            \"brand\": \"Nissan\",\n            \"model\": \"March\",\n            \"year\": 2020,\n            \"color\": \"Blanco\",\n            \"car_id\": 29,\n            \"plate_number\": \"ABT103\",\n            \"photo_url\": null,\n            \"full_description\": \"Nissan March 2020\",\n            \"is_vintage\": false,\n            \"is_new\": false,\n            \"age_years\": 5,\n            \"owner_id\": 10,\n            \"created_at\": \"2025-07-24 03:03:33\",\n            \"updated_at\": \"2025-07-24 03:03:33\"\n        }\n    ],\n    \"success\": true,\n    \"message\": \"Autos obtenidos exitosamente\"\n}"
+				},
+				{
+					"name": "Listar Autos de Borja",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 08:15:10 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"total\": 2,\n    \"data\": [\n        {\n            \"brand\": \"Mazda 2\",\n            \"model\": \"xr\",\n            \"year\": 2025,\n            \"color\": \"Negro\",\n            \"car_id\": 31,\n            \"plate_number\": \"NSK456\",\n            \"photo_url\": null,\n            \"full_description\": \"Mazda 2 xr 2025\",\n            \"is_vintage\": false,\n            \"is_new\": true,\n            \"age_years\": 0,\n            \"owner_id\": 11,\n            \"created_at\": \"2025-07-24 03:14:20\",\n            \"updated_at\": \"2025-07-24 03:14:20\"\n        },\n        {\n            \"brand\": \"Audi\",\n            \"model\": \"R5\",\n            \"year\": 2025,\n            \"color\": \"Rojo\",\n            \"car_id\": 30,\n            \"plate_number\": \"ZZZ005\",\n            \"photo_url\": null,\n            \"full_description\": \"Audi R5 2025\",\n            \"is_vintage\": false,\n            \"is_new\": true,\n            \"age_years\": 0,\n            \"owner_id\": 11,\n            \"created_at\": \"2025-07-24 03:12:47\",\n            \"updated_at\": \"2025-07-24 03:12:47\"\n        }\n    ],\n    \"success\": true,\n    \"message\": \"Autos obtenidos exitosamente\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar Auto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoianVhbi5wZXJlekB0dWNhcnJvLmNvbSIsInN1YiI6Imp1YW4ucGVyZXpAdHVjYXJyby5jb20iLCJpYXQiOjE3NTM0MjUxNTAsImV4cCI6MTc1MzUxMTU1MH0.M-vsolRphaxnBkZXk95j0pSsG1WL4XL8wQvw3EFjIkikTMSa36rOOIIjbEVETEE4eG5kR27-RGASk3BIyXWgaA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/32",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"32"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Carro Juan Perez Eliminado",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/32",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"32"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 25 Jul 2025 06:35:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Recurso eliminado exitosamente\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener perfil del usuario",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Perfil Usuario Borja",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 08:16:04 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"email\": \"andres.vorja@test.com\",\n        \"user_id\": 11,\n        \"first_name\": \"Andres\",\n        \"last_name\": \"Borja\",\n        \"full_name\": \"Andres Borja\",\n        \"created_at\": \"2025-07-24 03:10:28\",\n        \"updated_at\": \"2025-07-24 03:10:28\",\n        \"total_cars\": 2\n    },\n    \"success\": true,\n    \"message\": \"Perfil obtenido exitosamente\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Modificar Carro",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsInN1YiI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsImlhdCI6MTc1MzM0NDYyOCwiZXhwIjoxNzUzNDMxMDI4fQ.OZ-7FjKWVqCzvbUgjL1PqvJafVzzrN4XAWQuzIbmWvys5gmOKJaeVu4sdswH3Mxd262hqCe9z6wRSX1qMUXatA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"color\": \"Naranja\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"31"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Modificar Carro a Morado",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"color\": \"Morado\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"31"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 08:29:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"brand\": \"Mazda 2\",\n        \"model\": \"xr\",\n        \"year\": 2025,\n        \"color\": \"Morado\",\n        \"car_id\": 31,\n        \"plate_number\": \"NSK456\",\n        \"photo_url\": null,\n        \"full_description\": \"Mazda 2 xr 2025\",\n        \"is_vintage\": false,\n        \"is_new\": true,\n        \"age_years\": 0,\n        \"owner_id\": 11,\n        \"created_at\": \"2025-07-24 03:14:20\",\n        \"updated_at\": \"2025-07-24 03:29:29\"\n    },\n    \"success\": true,\n    \"message\": \"Recurso actualizado exitosamente\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Health check para search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/search/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"search",
+						"health"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Health check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search",
+								"health"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:00:35 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"endpoints_available\": [\n        \"POST /search\",\n        \"GET /quick\",\n        \"GET /plate/{plate}\",\n        \"GET /brand/{brand}\",\n        \"GET /model/{model}\",\n        \"GET /year/{year}\",\n        \"GET /vintage\",\n        \"GET /new\",\n        \"GET /statistics\"\n    ],\n    \"service\": \"Car Search Service\",\n    \"status\": \"UP\",\n    \"timestamp\": 1753358435282\n}"
+				}
+			]
+		},
+		{
+			"name": "Statistics",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsInN1YiI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsImlhdCI6MTc1MzM1ODY1OSwiZXhwIjoxNzUzNDQ1MDU5fQ.nlj-24Z__IKOb8ca42ySXtZfuPJJUUPB3L_FHmt-dmqlonTWmriJGQUT1Qp30KvK1lxN0A5a7ytG11NXFur_qg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/search/statistics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"search",
+						"statistics"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borja statistics",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search/statistics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search",
+								"statistics"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:12:24 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"average_year\": 2025,\n        \"year_range\": 0,\n        \"total_cars\": 2,\n        \"new_count\": 2,\n        \"vintage_count\": 0,\n        \"with_photo_count\": 0,\n        \"min_year\": 2025,\n        \"max_year\": 2025,\n        \"most_common_brands\": [\n            \"audi\",\n            \"mazda 2\"\n        ]\n    },\n    \"success\": true,\n    \"message\": \"Estadísticas obtenidas exitosamente\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Búsqueda rápida",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Búsqueda rápida de Borja",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search/quick",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search",
+								"quick"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:14:40 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"brand\": \"Mazda 2\",\n            \"model\": \"xr\",\n            \"year\": 2025,\n            \"color\": \"Morado\",\n            \"car_id\": 31,\n            \"plate_number\": \"NSK456\",\n            \"photo_url\": null,\n            \"full_description\": \"Mazda 2 xr 2025\",\n            \"is_vintage\": false,\n            \"is_new\": true,\n            \"age_years\": 0,\n            \"owner_id\": 11,\n            \"created_at\": \"2025-07-24 03:14:20\",\n            \"updated_at\": \"2025-07-24 03:29:29\"\n        },\n        {\n            \"brand\": \"Audi\",\n            \"model\": \"R5\",\n            \"year\": 2025,\n            \"color\": \"Rojo\",\n            \"car_id\": 30,\n            \"plate_number\": \"ZZZ005\",\n            \"photo_url\": null,\n            \"full_description\": \"Audi R5 2025\",\n            \"is_vintage\": false,\n            \"is_new\": true,\n            \"age_years\": 0,\n            \"owner_id\": 11,\n            \"created_at\": \"2025-07-24 03:12:47\",\n            \"updated_at\": \"2025-07-24 03:12:47\"\n        }\n    ],\n    \"success\": true,\n    \"search_term\": null,\n    \"message\": \"Búsqueda rápida completada\",\n    \"total_results\": 2\n}"
+				},
+				{
+					"name": "Busqueda Borja Toyota: sin resultados",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search/quick?term=toyota",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search",
+								"quick"
+							],
+							"query": [
+								{
+									"key": "term",
+									"value": "toyota"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:15:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"success\": true,\n    \"search_term\": \"toyota\",\n    \"message\": \"Búsqueda rápida completada\",\n    \"total_results\": 0\n}"
+				},
+				{
+					"name": "Busqueda Borja Mazda: encontrado",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search/quick?term=mazda",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search",
+								"quick"
+							],
+							"query": [
+								{
+									"key": "term",
+									"value": "mazda"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:16:22 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"brand\": \"Mazda 2\",\n            \"model\": \"xr\",\n            \"year\": 2025,\n            \"color\": \"Morado\",\n            \"car_id\": 31,\n            \"plate_number\": \"NSK456\",\n            \"photo_url\": null,\n            \"full_description\": \"Mazda 2 xr 2025\",\n            \"is_vintage\": false,\n            \"is_new\": true,\n            \"age_years\": 0,\n            \"owner_id\": 11,\n            \"created_at\": \"2025-07-24 03:14:20\",\n            \"updated_at\": \"2025-07-24 03:29:29\"\n        }\n    ],\n    \"success\": true,\n    \"search_term\": \"mazda\",\n    \"message\": \"Búsqueda rápida completada\",\n    \"total_results\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Búsqueda",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsInN1YiI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsImlhdCI6MTc1MzM1ODY1OSwiZXhwIjoxNzUzNDQ1MDU5fQ.nlj-24Z__IKOb8ca42ySXtZfuPJJUUPB3L_FHmt-dmqlonTWmriJGQUT1Qp30KvK1lxN0A5a7ytG11NXFur_qg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"searchTerm\": \"toyota\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"search"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Búsqueda de toyota",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"searchTerm\": \"toyota\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:22:11 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"cars\": [],\n        \"search_metadata\": {\n            \"total_results\": 0,\n            \"applied_filters\": \"Término: 'toyota'\",\n            \"sort_by\": \"createdAt\",\n            \"sort_direction\": \"desc\",\n            \"search_term\": \"toyota\"\n        },\n        \"search_statistics\": {\n            \"total_count\": 0,\n            \"vintage_count\": 0,\n            \"new_count\": 0,\n            \"with_photo_count\": 0,\n            \"most_common_brand\": null,\n            \"year_range\": null,\n            \"brand_distribution\": null\n        }\n    },\n    \"success\": true,\n    \"message\": \"Búsqueda completada exitosamente\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Filtro por año",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsInN1YiI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsImlhdCI6MTc1MzM1ODY1OSwiZXhwIjoxNzUzNDQ1MDU5fQ.nlj-24Z__IKOb8ca42ySXtZfuPJJUUPB3L_FHmt-dmqlonTWmriJGQUT1Qp30KvK1lxN0A5a7ytG11NXFur_qg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/search/year/2020",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"search",
+						"year",
+						"2020"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Filtro por año usuario Borja",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search/year/2020",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search",
+								"year",
+								"2020"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:24:35 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"filter_year\": 2020,\n    \"data\": [],\n    \"success\": true,\n    \"message\": \"Filtro por año aplicado\",\n    \"total_results\": 0\n}"
+				},
+				{
+					"name": "Filtro por año, Borja",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search/year/2025",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search",
+								"year",
+								"2025"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:25:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"filter_year\": 2025,\n    \"data\": [\n        {\n            \"brand\": \"Mazda 2\",\n            \"model\": \"xr\",\n            \"year\": 2025,\n            \"color\": \"Morado\",\n            \"car_id\": 31,\n            \"plate_number\": \"NSK456\",\n            \"photo_url\": null,\n            \"full_description\": \"Mazda 2 xr 2025\",\n            \"is_vintage\": false,\n            \"is_new\": true,\n            \"age_years\": 0,\n            \"owner_id\": 11,\n            \"created_at\": \"2025-07-24 03:14:20\",\n            \"updated_at\": \"2025-07-24 03:29:29\"\n        },\n        {\n            \"brand\": \"Audi\",\n            \"model\": \"R5\",\n            \"year\": 2025,\n            \"color\": \"Rojo\",\n            \"car_id\": 30,\n            \"plate_number\": \"ZZZ005\",\n            \"photo_url\": null,\n            \"full_description\": \"Audi R5 2025\",\n            \"is_vintage\": false,\n            \"is_new\": true,\n            \"age_years\": 0,\n            \"owner_id\": 11,\n            \"created_at\": \"2025-07-24 03:12:47\",\n            \"updated_at\": \"2025-07-24 03:12:47\"\n        }\n    ],\n    \"success\": true,\n    \"message\": \"Filtro por año aplicado\",\n    \"total_results\": 2\n}"
+				}
+			]
+		},
+		{
+			"name": "Filtro por modelo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsInN1YiI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsImlhdCI6MTc1MzM1ODY1OSwiZXhwIjoxNzUzNDQ1MDU5fQ.nlj-24Z__IKOb8ca42ySXtZfuPJJUUPB3L_FHmt-dmqlonTWmriJGQUT1Qp30KvK1lxN0A5a7ytG11NXFur_qg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/search/model/Corolla",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"search",
+						"model",
+						"Corolla"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Filtro modelo Corolla",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search/model/Corolla",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search",
+								"model",
+								"Corolla"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:26:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"filter_model\": \"Corolla\",\n    \"data\": [],\n    \"success\": true,\n    \"message\": \"Filtro por modelo aplicado\",\n    \"total_results\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Filtro por modelo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsInN1YiI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsImlhdCI6MTc1MzM1ODY1OSwiZXhwIjoxNzUzNDQ1MDU5fQ.nlj-24Z__IKOb8ca42ySXtZfuPJJUUPB3L_FHmt-dmqlonTWmriJGQUT1Qp30KvK1lxN0A5a7ytG11NXFur_qg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/search/model/xr",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"search",
+						"model",
+						"xr"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Filtro por modelo",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search/model/xr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search",
+								"model",
+								"xr"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:32:21 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"filter_model\": \"xr\",\n    \"data\": [\n        {\n            \"brand\": \"Mazda 2\",\n            \"model\": \"xr\",\n            \"year\": 2025,\n            \"color\": \"Morado\",\n            \"car_id\": 31,\n            \"plate_number\": \"NSK456\",\n            \"photo_url\": null,\n            \"full_description\": \"Mazda 2 xr 2025\",\n            \"is_vintage\": false,\n            \"is_new\": true,\n            \"age_years\": 0,\n            \"owner_id\": 11,\n            \"created_at\": \"2025-07-24 03:14:20\",\n            \"updated_at\": \"2025-07-24 03:29:29\"\n        }\n    ],\n    \"success\": true,\n    \"message\": \"Filtro por modelo aplicado\",\n    \"total_results\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Filtrar por marca",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Filtrar por Marca Mazda",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search/brand/Mazda",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search",
+								"brand",
+								"Mazda"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:34:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"brand\": \"Mazda 2\",\n            \"model\": \"xr\",\n            \"year\": 2025,\n            \"color\": \"Morado\",\n            \"car_id\": 31,\n            \"plate_number\": \"NSK456\",\n            \"photo_url\": null,\n            \"full_description\": \"Mazda 2 xr 2025\",\n            \"is_vintage\": false,\n            \"is_new\": true,\n            \"age_years\": 0,\n            \"owner_id\": 11,\n            \"created_at\": \"2025-07-24 03:14:20\",\n            \"updated_at\": \"2025-07-24 03:29:29\"\n        }\n    ],\n    \"success\": true,\n    \"filter_brand\": \"Mazda\",\n    \"message\": \"Filtro por marca aplicado\",\n    \"total_results\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Filtro por placa",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Filtra placa NSK456",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search/plate/NSK456",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search",
+								"plate",
+								"NSK456"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:36:02 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"brand\": \"Mazda 2\",\n        \"model\": \"xr\",\n        \"year\": 2025,\n        \"color\": \"Morado\",\n        \"car_id\": 31,\n        \"plate_number\": \"NSK456\",\n        \"photo_url\": null,\n        \"full_description\": \"Mazda 2 xr 2025\",\n        \"is_vintage\": false,\n        \"is_new\": true,\n        \"age_years\": 0,\n        \"owner_id\": 11,\n        \"created_at\": \"2025-07-24 03:14:20\",\n        \"updated_at\": \"2025-07-24 03:29:29\"\n    },\n    \"success\": true,\n    \"message\": \"Auto encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Filtros especiales",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjExLCJlbWFpbCI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsInN1YiI6ImFuZHJlcy52b3JqYUB0ZXN0LmNvbSIsImlhdCI6MTc1MzM1ODY1OSwiZXhwIjoxNzUzNDQ1MDU5fQ.nlj-24Z__IKOb8ca42ySXtZfuPJJUUPB3L_FHmt-dmqlonTWmriJGQUT1Qp30KvK1lxN0A5a7ytG11NXFur_qg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/cars/search/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"cars",
+						"search",
+						"new"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Filtro Carros nuevos usuario Borja",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search",
+								"new"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:37:08 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"brand\": \"Mazda 2\",\n            \"model\": \"xr\",\n            \"year\": 2025,\n            \"color\": \"Morado\",\n            \"car_id\": 31,\n            \"plate_number\": \"NSK456\",\n            \"photo_url\": null,\n            \"full_description\": \"Mazda 2 xr 2025\",\n            \"is_vintage\": false,\n            \"is_new\": true,\n            \"age_years\": 0,\n            \"owner_id\": 11,\n            \"created_at\": \"2025-07-24 03:14:20\",\n            \"updated_at\": \"2025-07-24 03:29:29\"\n        },\n        {\n            \"brand\": \"Audi\",\n            \"model\": \"R5\",\n            \"year\": 2025,\n            \"color\": \"Rojo\",\n            \"car_id\": 30,\n            \"plate_number\": \"ZZZ005\",\n            \"photo_url\": null,\n            \"full_description\": \"Audi R5 2025\",\n            \"is_vintage\": false,\n            \"is_new\": true,\n            \"age_years\": 0,\n            \"owner_id\": 11,\n            \"created_at\": \"2025-07-24 03:12:47\",\n            \"updated_at\": \"2025-07-24 03:12:47\"\n        }\n    ],\n    \"filter_type\": \"new\",\n    \"success\": true,\n    \"message\": \"Autos nuevos obtenidos\",\n    \"total_results\": 2\n}"
+				},
+				{
+					"name": "Filtro Carro Clásico",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/cars/search/vintage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"cars",
+								"search",
+								"vintage"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Jul 2025 12:56:21 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"filter_type\": \"vintage\",\n    \"success\": true,\n    \"message\": \"Autos vintage obtenidos\",\n    \"total_results\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "CraerUsuario a Eliminar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "registro usuario a eliminar",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Usuario próximo\",\n    \"lastName\": \"Eliminado\", \n    \"email\": \"eliminado@out.net\",\n    \"password\": \"demo123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 25 Jul 2025 06:27:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzUxMiJ9.eyJ1c2VySWQiOjEyLCJlbWFpbCI6ImVsaW1pbmFkb0BvdXQubmV0Iiwic3ViIjoiZWxpbWluYWRvQG91dC5uZXQiLCJpYXQiOjE3NTM0MjQ4MjksImV4cCI6MTc1MzUxMTIyOX0.GeKMwg674tduY03067n4hotlszGeql8Rx5ldukJlwAIJK7GSQCsAaHo4ldbwrNVaHY12_cgGnL_Amgelshs_xg\",\n        \"token_type\": \"Bearer\",\n        \"expires_in\": 86400,\n        \"user_info\": {\n            \"email\": \"eliminado@out.net\",\n            \"user_id\": 12,\n            \"full_name\": \"Usuario próximo Eliminado\"\n        },\n        \"timestamp\": \"2025-07-25 01:27:09\"\n    },\n    \"success\": true,\n    \"message\": \"Usuario registrado exitosamente\"\n}"
+				}
+			]
+		},
+		{
+			"name": "eliminar user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/user/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"profile"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "eliminado del sistema",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 25 Jul 2025 06:31:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Cuenta eliminada exitosamente\"\n}"
+				}
+			]
+		},
+		{
+			"name": "cambio password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/users/change-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"change-password"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "camilo change password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"currentPassword\": \"borja123\",\n  \"newPassword\": \"camilo123\",\n  \"confirmPassword\": \"camilo123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/change-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"change-password"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 02 Aug 2025 11:04:05 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Contraseña cambiada exitosamente\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Perfil de Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/users/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"profile"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Perfil de Camilo user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"profile"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 02 Aug 2025 11:19:28 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"email\": \"camilo@test.com\",\n        \"user_id\": 14,\n        \"first_name\": \"camiloprueba\",\n        \"last_name\": \"test\",\n        \"full_name\": \"camiloprueba test\",\n        \"created_at\": \"2025-08-02 00:19:56\",\n        \"updated_at\": \"2025-08-02 06:12:51\",\n        \"total_cars\": 0\n    },\n    \"success\": true,\n    \"message\": \"Perfil obtenido exitosamente\"\n}"
+				}
+			]
+		}
+	]
+}
